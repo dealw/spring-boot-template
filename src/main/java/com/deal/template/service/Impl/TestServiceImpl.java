@@ -1,6 +1,7 @@
 package com.deal.template.service.Impl;
 
 import com.deal.template.service.TestService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import javax.annotation.Resource;
  * Date 2021/12/29 22:04
  **/
 @Service
+@Slf4j
 public class TestServiceImpl implements TestService {
     @Resource
     private TestServiceImpl1 testServiceImpl1;
@@ -31,6 +33,7 @@ public class TestServiceImpl implements TestService {
             System.out.print(i);
         }
         System.out.println();
+        log.info("testAsync 方法运行 线程：{}",Thread.currentThread().getName());
     }
 
     @Async
